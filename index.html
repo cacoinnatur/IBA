@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XXIX Certamen Panamericano de Coctelería Venezuela 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+            overflow-x: hidden;
+        }
+        .font-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .glow-button {
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+            transition: all 0.3s ease;
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 40px rgba(245, 158, 11, 0.8);
+            transform: translateY(-2px);
+        }
+        .bg-animated {
+            background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #0f172a 50%, #000000 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .bg-animated::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 60%);
+            animation: rotate 20s linear infinite;
+        }
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .countdown-box {
+            min-width: 80px;
+        }
+        .logo-container {
+            animation: float 6s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .logo-glow {
+            filter: drop-shadow(0 0 30px rgba(251, 191, 36, 0.3));
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="bg-animated"></div>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex flex-col items-center justify-center px-4 py-12 relative">
+        
+        <!-- Logo CATURANZ -->
+        <div class="logo-container logo-glow mb-8 z-10">
+            <img src="caturanz-logo.png" alt="CATURANZ - Cámara de Turismo del Estado Anzoátegui" class="h-32 md:h-44 lg:h-52 w-auto object-contain">
+        </div>
+
+        <div class="text-center max-w-4xl mx-auto z-10">
+            <p class="text-amber-400 tracking-[0.3em] text-sm md:text-base font-bold mb-4 uppercase">Puerto La Cruz, Edo. Anzoátegui</p>
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
+                <span class="gradient-text">XXIX Certamen</span><br>
+                <span class="text-white">Panamericano de</span><br>
+                <span class="text-white">Coctelería 2026</span>
+            </h1>
+            <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
+                20 países. Master Classes exclusivas. La experiencia de coctelería más grande de Latinoamérica.
+            </p>
+
+            <!-- Countdown Timer -->
+            <div class="glass rounded-2xl p-6 md:p-8 mb-10 inline-block w-full max-w-3xl">
+                <p class="text-slate-400 text-xs uppercase tracking-widest mb-4">El evento comienza en:</p>
+                <div class="flex flex-wrap justify-center gap-4 md:gap-8" id="countdown">
+                    <div class="countdown-box text-center">
+                        <span class="block text-4xl md:text-6xl font-bold text-white" id="days">00</span>
+                        <span class="text-xs md:text-sm text-amber-400 uppercase tracking-wider">Días</span>
+                    </div>
+                    <div class="countdown-box text-center">
+                        <span class="block text-4xl md:text-6xl font-bold text-white" id="hours">00</span>
+                        <span class="text-xs md:text-sm text-amber-400 uppercase tracking-wider">Horas</span>
+                    </div>
+                    <div class="countdown-box text-center">
+                        <span class="block text-4xl md:text-6xl font-bold text-white" id="minutes">00</span>
+                        <span class="text-xs md:text-sm text-amber-400 uppercase tracking-wider">Minutos</span>
+                    </div>
+                    <div class="countdown-box text-center">
+                        <span class="block text-4xl md:text-6xl font-bold text-white" id="seconds">00</span>
+                        <span class="text-xs md:text-sm text-amber-400 uppercase tracking-wider">Segundos</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main CTA -->
+            <a href="https://forms.gle/oBYXE68pgHhnZ4BCA" target="_blank" class="glow-button inline-block bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold py-4 px-10 rounded-full text-lg uppercase tracking-wider">
+                Asegura tu lugar ahora
+            </a>
+            <p class="text-slate-500 text-xs mt-4">* El enlace de registro solo funciona una vez por correo.</p>
+        </div>
+    </section>
+
+    <!-- Info Section -->
+    <section class="py-20 px-4 relative z-10">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="glass rounded-2xl p-8 md:p-12 border-l-4 border-amber-500">
+                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6 text-white">Hotel Maremares</h2>
+                <p class="text-slate-300 mb-4 leading-relaxed">
+                    Sede oficial del evento. Un hotel de 5 estrellas con una arquitectura imponente inspirada en un crucero encallado a la orilla del mar. 
+                </p>
+                <p class="text-slate-300 leading-relaxed">
+                    Ubicado en el centro de Puerto La Cruz, al final del Paseo de la Cruz y el Mar, garantiza una estadía de primer nivel para atletas, asistentes y patrocinadores.
+                </p>
+            </div>
+            <div class="space-y-6">
+                <div class="flex items-start gap-4">
+                    <div class="bg-amber-500/20 p-3 rounded-lg text-amber-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">20 Países</h3>
+                        <p class="text-slate-400 text-sm">Representación internacional de élite.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="bg-amber-500/20 p-3 rounded-lg text-amber-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">Master Classes</h3>
+                        <p class="text-slate-400 text-sm">Serie exclusiva con grandes referentes de la industria.</p>
+                    </div>
+                </div>
+                <div class="flex items-start gap-4">
+                    <div class="bg-amber-500/20 p-3 rounded-lg text-amber-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-white">07 - 11 Septiembre 2026</h3>
+                        <p class="text-slate-400 text-sm">5 días de competencia, networking y turismo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Links Section -->
+    <footer class="py-16 px-4 border-t border-slate-800 relative z-10">
+        <div class="max-w-4xl mx-auto text-center">
+            <h3 class="text-2xl font-serif font-bold text-white mb-8">Organizado por</h3>
+            
+            <!-- Logo en el footer también -->
+            <div class="flex justify-center mb-8">
+                <img src="caturanz-logo.png" alt="CATURANZ" class="h-20 md:h-28 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity">
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
+                <div class="glass px-6 py-3 rounded-full text-amber-400 font-bold tracking-wider">CATURANZ</div>
+                <div class="hidden md:block text-slate-600">|</div>
+                <div class="glass px-6 py-3 rounded-full text-amber-400 font-bold tracking-wider">Asociación de Bartenders de Venezuela (ABV)</div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://www.caturanz.com/" target="_blank" class="group relative px-8 py-4 bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-amber-500 transition-all duration-300">
+                    <div class="absolute inset-0 w-0 bg-amber-500 transition-all duration-[250ms] ease-out group-hover:w-full opacity-10"></div>
+                    <span class="relative text-white font-semibold group-hover:text-amber-400 transition-colors">CATURANZ | Cámara de Turismo del Estado Anzoátegui</span>
+                </a>
+                
+                <a href="https://www.caturanz.com/contacto/" target="_blank" class="group relative px-8 py-4 bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-amber-500 transition-all duration-300">
+                    <div class="absolute inset-0 w-0 bg-amber-500 transition-all duration-[250ms] ease-out group-hover:w-full opacity-10"></div>
+                    <span class="relative text-white font-semibold group-hover:text-amber-400 transition-colors">Contacto</span>
+                </a>
+            </div>
+
+            <p class="text-slate-600 text-sm mt-12">© 2026 XXIX Certamen Panamericano de Coctelería Venezuela. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Countdown Script -->
+    <script>
+        const eventDate = new Date('September 7, 2026 00:00:00').getTime();
+
+        const countdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = eventDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById('countdown').innerHTML = '<div class="text-3xl font-bold text-amber-400">¡EL EVENTO HA COMENZADO!</div>';
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
