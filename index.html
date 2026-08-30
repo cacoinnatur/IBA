@@ -3,427 +3,403 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XXIX Certamen Panamericano de Coctelería Venezuela 2026</title>
+    <title>Ruta del Éxito Comercial: Protección Legal y Estándares de Excelencia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg-color: #023a53;
-            --text-color: #ffffff;
-            --accent-color: #d4af37;
-            --accent-hover: #f0c952;
-            --card-bg: rgba(255, 255, 255, 0.08);
-            --card-border: rgba(255, 255, 255, 0.15);
+            --neon-blue: #00f3ff;
+            --neon-amber: #ffb703;
+            --card-bg: rgba(2, 45, 66, 0.75);
+            --text-color: #e0f4fc;
         }
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
+            font-family: 'Rajdhani', sans-serif;
+            min-height: 100vh;
             overflow-x: hidden;
-        }
-
-        /* CINTILLO SUPERIOR DE LOGOS */
-        .logo-ribbon {
-            background: rgba(0, 0, 0, 0.3);
-            padding: 20px 0;
-            border-bottom: 1px solid var(--card-border);
-        }
-
-        .logo-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            padding: 0 20px;
-        }
-
-        .logo-container img {
-            height: 60px;
-            max-width: 150px;
-            object-fit: contain;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 8px 12px;
-            border-radius: 6px;
-            transition: transform 0.3s ease;
-        }
-
-        .logo-container img:hover {
-            transform: scale(1.05);
-        }
-
-        /* HERO SECTION */
-        .hero {
-            min-height: 80vh;
+            position: relative;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
+            padding: 2rem 1rem;
+        }
+
+        /* Canvas para líneas dinámicas de fondo */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* Enmarcado Neón / Fluorescente */
+        .glow-card {
+            background: var(--card-bg);
+            border: 1px solid var(--neon-blue);
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2), inset 0 0 15px rgba(0, 243, 255, 0.1);
+            border-radius: 12px;
+            padding: 2rem;
+            backdrop-filter: blur(8px);
+            position: relative;
+        }
+
+        .glow-card::before {
+            content: '';
+            position: absolute;
+            top: -2px; left: -2px; right: -2px; bottom: -2px;
+            background: linear-gradient(45deg, var(--neon-blue), transparent, var(--neon-amber));
+            border-radius: 14px;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        header {
             text-align: center;
-            padding: 60px 20px;
-            background: radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
         }
 
-        .hero-location {
-            color: var(--accent-color);
-            font-weight: 700;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4.5rem);
-            font-weight: 800;
-            text-transform: uppercase;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 0%, var(--accent-color) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.4rem);
-            color: #cbd5e1;
-            max-width: 700px;
-            margin-bottom: 40px;
-        }
-
-        /* COUNTDOWN */
-        .countdown-wrapper {
-            margin-bottom: 40px;
-        }
-
-        .countdown-label {
-            font-size: 1rem;
+        .event-tag {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-amber);
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-bottom: 20px;
-            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 8px rgba(255, 183, 3, 0.6);
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            color: #ffffff;
+            text-shadow: 0 0 10px var(--neon-blue);
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-blue);
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        /* Estructura de Secciones */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .info-item {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .info-item strong {
+            color: #ffffff;
+            display: block;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        ul.activities {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        ul.activities li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        ul.activities li::before {
+            content: '➢';
+            position: absolute;
+            left: 0;
+            color: var(--neon-blue);
+        }
+
+        /* Contador Regresivo */
+        .timer-container {
+            text-align: center;
+        }
+
+        .timer-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1.5px;
+            color: var(--neon-amber);
+            margin-bottom: 1rem;
         }
 
         .countdown {
             display: flex;
-            gap: 15px;
             justify-content: center;
-            flex-wrap: wrap;
+            gap: 1rem;
         }
 
-        .countdown-item {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            backdrop-filter: blur(10px);
-            padding: 20px 25px;
-            border-radius: 12px;
-            min-width: 90px;
-            text-align: center;
+        .time-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--neon-blue);
+            border-radius: 8px;
+            padding: 0.8rem;
+            min-width: 70px;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
         }
 
-        .countdown-item .number {
-            font-size: 2.5rem;
+        .time-box .number {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
             font-weight: 800;
-            color: var(--accent-color);
+            color: #ffffff;
             display: block;
-            line-height: 1;
         }
 
-        .countdown-item .label {
-            font-size: 0.8rem;
+        .time-box .label {
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #94a3b8;
-            margin-top: 5px;
-            display: block;
+            color: var(--neon-blue);
         }
 
-        /* BUTTONS */
-        .btn {
+        /* Botón de Registro */
+        .cta-container {
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        .btn-register {
             display: inline-block;
-            background: var(--accent-color);
-            color: #023a53;
-            padding: 18px 45px;
+            background: transparent;
+            color: #ffffff;
+            font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem;
             font-weight: 800;
-            text-transform: uppercase;
             text-decoration: none;
-            border-radius: 50px;
+            padding: 1.2rem 2.5rem;
+            border: 2px solid var(--neon-amber);
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            box-shadow: 0 0 15px rgba(255, 183, 3, 0.4);
+            text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        .btn:hover {
-            background: var(--accent-hover);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+        .btn-register:hover {
+            background: var(--neon-amber);
+            color: #000000;
+            box-shadow: 0 0 30px rgba(255, 183, 3, 0.8);
         }
 
-        .disclaimer {
-            margin-top: 15px;
+        .btn-note {
+            margin-top: 0.8rem;
             font-size: 0.85rem;
-            color: #94a3b8;
+            color: #a0c4d6;
             font-style: italic;
         }
 
-        /* SECTIONS */
-        section {
-            padding: 80px 20px;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.2rem;
-            text-align: center;
-            margin-bottom: 50px;
-            color: var(--accent-color);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            padding: 40px 30px;
-            border-radius: 16px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
-        }
-
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
-            color: #ffffff;
-            font-weight: 700;
-        }
-
-        .card p {
-            color: #cbd5e1;
-            line-height: 1.7;
-        }
-
-        /* VENUE SECTION */
-        .venue-section {
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .venue-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        @media (max-width: 768px) {
-            .venue-grid {
-                grid-template-columns: 1fr;
-            }
-            .logo-container {
-                gap: 20px;
-            }
-            .logo-container img {
-                height: 45px;
-            }
-        }
-
-        /* FOOTER */
-        footer {
-            background: rgba(0, 0, 0, 0.4);
-            padding: 60px 20px 30px;
-            text-align: center;
-            border-top: 1px solid var(--card-border);
-        }
-
-        footer p {
-            color: #94a3b8;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-
-        .footer-logos {
+        /* Muestra de Logos Integrados */
+        .logos-container {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             align-items: center;
-            gap: 30px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
+            gap: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(0, 243, 255, 0.2);
         }
 
-        .footer-logos img {
-            height: 50px;
-            max-width: 120px;
-            object-fit: contain;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 8px 12px;
-            border-radius: 6px;
+        .logo-tag {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: #a0c4d6;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
+            background: rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body>
 
-    <!-- CINTILLO SUPERIOR -->
-    <div class="logo-ribbon">
-        <div class="logo-container">
-            <img src="fanz-pba.png" alt="FANZ">
-            <img src="caturanz-pba.png" alt="CATURANZ">
-            <img src="ccl-pba.png" alt="CCL">
-            <img src="iba-pba.png" alt="IBA">
+    <canvas id="bg-canvas"></canvas>
+
+    <div class="container">
+        
+        <header class="glow-card">
+            <div class="event-tag">Evento Oficial • 10 de Septiembre, 2026 - 9:00 AM</div>
+            <h1>Ruta del Éxito Comercial</h1>
+            <p style="color: var(--neon-blue); font-size: 1.2rem; font-weight: 600;">Protección Legal y Estándares de Excelencia</p>
+        </header>
+
+        <section class="glow-card timer-container">
+            <div class="timer-title">TIEMPO RESTANTE PARA EL EVENTO (10 SEP, 9:00 AM)</div>
+            <div class="countdown" id="countdown">
+                <div class="time-box"><span class="number" id="days">00</span><span class="label">Días</span></div>
+                <div class="time-box"><span class="number" id="hours">00</span><span class="label">Horas</span></div>
+                <div class="time-box"><span class="number" id="minutes">00</span><span class="label">Min</span></div>
+                <div class="time-box"><span class="number" id="seconds">00</span><span class="label">Seg</span></div>
+            </div>
+        </section>
+
+        <div class="grid-layout">
+            
+            <article class="glow-card">
+                <h2>XXIX Certamen Panamericano de Coctelería 2026</h2>
+                
+                <div class="info-item">
+                    <strong>Ubicación</strong>
+                    Puerto La Cruz, Estado Anzoátegui, Venezuela<br>
+                    <em>Sede oficial: Hotel Maremares</em>
+                </div>
+
+                <div class="info-item">
+                    <strong>Fecha del Certamen</strong>
+                    07 - 11 de Septiembre 2026<br>
+                    (5 días de competencia, networking y turismo)
+                </div>
+
+                <div class="info-item">
+                    <strong>Participación Internacional</strong>
+                    20 países con representación de élite.
+                </div>
+            </article>
+
+            <article class="glow-card">
+                <h2>Actividades Principales</h2>
+                <ul class="activities">
+                    <li>Master Classes exclusivas con grandes referentes de la industria.</li>
+                    <li>Competencia Panamericana de Coctelería.</li>
+                    <li>Jornadas de Networking de alto nivel.</li>
+                    <li>Rutas de Turismo Regional.</li>
+                </ul>
+            </article>
+
         </div>
+
+        <section class="glow-card cta-container">
+            <a href="https://forms.gle/oBYXE68pgHhnZ4BCA" target="_blank" rel="noopener" class="btn-register">
+                Acceder al Registro
+            </a>
+            <p class="btn-note">Nota: El enlace de registro solo funciona una vez por correo registrado.</p>
+        </section>
+
+        <footer class="glow-card">
+            <div class="logos-container">
+                <span class="logo-tag">FEDECÁMARAS ANZOÁTEGUI</span>
+                <span class="logo-tag">CATURANZ</span>
+                <span class="logo-tag">CÁMARA COMERCIO LECHERÍA</span>
+                <span class="logo-tag">IBA PAN-AMERICAN 2026</span>
+            </div>
+        </footer>
+
     </div>
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="container">
-            <p class="hero-location">Puerto La Cruz, Edo. Anzoátegui</p>
-            <h1>XXIX Certamen Panamericano de Coctelería Venezuela 2026</h1>
-            <p>20 países. Master Classes exclusivas. La experiencia de coctelería más grande de Latinoamérica.</p>
-            
-            <div class="countdown-wrapper">
-                <p class="countdown-label">El evento comienza en:</p>
-                <div class="countdown" id="countdown">
-                    <div class="countdown-item">
-                        <span class="number" id="days">00</span>
-                        <span class="label">Días</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="number" id="hours">00</span>
-                        <span class="label">Horas</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="number" id="minutes">00</span>
-                        <span class="label">Minutos</span>
-                    </div>
-                    <div class="countdown-item">
-                        <span class="number" id="seconds">00</span>
-                        <span class="label">Segundos</span>
-                    </div>
-                </div>
-            </div>
-
-            <a href="https://forms.gle/oBYXE68pgHhnZ4BCA" class="btn" target="_blank">Asegura tu lugar ahora</a>
-            <p class="disclaimer">* El enlace de registro solo funciona una vez por correo. Puedes reenviarlo a tus contactos.</p>
-        </div>
-    </section>
-
-    <!-- DETALLES -->
-    <section id="info">
-        <div class="container">
-            <h2 class="section-title">La Experiencia</h2>
-            <div class="grid">
-                <div class="card">
-                    <span class="card-icon">🌍</span>
-                    <h3>20 Países</h3>
-                    <p>Representación internacional de élite. Demostremos que en Anzoátegui se hace turismo, dando la más cordial bienvenida a los mejores bartenders del continente.</p>
-                </div>
-                <div class="card">
-                    <span class="card-icon">🔥</span>
-                    <h3>Master Classes</h3>
-                    <p>Serie exclusiva con grandes referentes de la industria, diseñada para elevar la excelencia del bartender venezolano y de toda la región.</p>
-                </div>
-                <div class="card">
-                    <span class="card-icon">📅</span>
-                    <h3>07 - 11 Septiembre 2026</h3>
-                    <p>5 días de competencia, networking y turismo en el corazón del oriente del país. Una experiencia única e irrepetible.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SEDE -->
-    <section class="venue-section" id="venue">
-        <div class="container">
-            <h2 class="section-title">Sede Oficial</h2>
-            <div class="venue-grid">
-                <div class="card">
-                    <h3>🏨 Hotel Maremares</h3>
-                    <p>Un hotel de 5 estrellas con una arquitectura imponente inspirada en un crucero encallado a la orilla del mar. Garantiza una estadía de primer nivel para atletas, asistentes y patrocinadores.</p>
-                </div>
-                <div class="card">
-                    <h3>📍 Puerto La Cruz</h3>
-                    <p>Ubicado en el centro de la ciudad, al final del Paseo de la Cruz y el Mar. Importante ciudad portuaria y centro turístico, capital del Municipio Sotillo, y puerta de entrada al Parque Nacional Mochima.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CIERRE Y REGISTRO -->
-    <section id="registro" style="text-align: center;">
-        <div class="container">
-            <h2 class="section-title">Sé Parte de la Historia</h2>
-            <p style="font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin: 0 auto 30px;">
-                En nombre de la Asociación de Bartenders de Venezuela (ABV) y CATURANZ, te invitamos formalmente al evento de coctelería más grande de Latinoamérica.
-            </p>
-            <a href="https://forms.gle/oBYXE68pgHhnZ4BCA" class="btn" target="_blank">Registrarse en el Certamen</a>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-logos">
-                <img src="fanz-pba.png" alt="FANZ">
-                <img src="caturanz-pba.png" alt="CATURANZ">
-                <img src="ccl-pba.png" alt="CCL">
-                <img src="iba-pba.png" alt="IBA">
-            </div>
-            <p>Organizado por la Cámara de Turismo del Estado Anzoátegui (CATURANZ) y la Asociación de Bartenders de Venezuela (ABV).</p>
-            <p>Afiliada a la International Bartenders Association (IBA).</p>
-            <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.6;">© 2026 XXIX Certamen Panamericano de Coctelería Venezuela. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
     <script>
-        const targetDate = new Date("September 7, 2026 00:00:00").getTime();
+        // Configuración Canvas Lineas Dinámicas
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
 
-        const countdownFunction = setInterval(function() {
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const lines = Array.from({ length: 25 }, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            length: Math.random() * 80 + 40,
+            speed: Math.random() * 1.5 + 0.5,
+            angle: Math.PI / 4
+        }));
+
+        function drawLines() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.strokeStyle = 'rgba(0, 243, 255, 0.15)';
+            ctx.lineWidth = 1.5;
+
+            lines.forEach(l => {
+                ctx.beginPath();
+                ctx.moveTo(l.x, l.y);
+                const endX = l.x + Math.cos(l.angle) * l.length;
+                const endY = l.y + Math.sin(l.angle) * l.length;
+                ctx.lineTo(endX, endY);
+                ctx.stroke();
+
+                l.x += l.speed;
+                l.y += l.speed;
+
+                if (l.x > canvas.width || l.y > canvas.height) {
+                    l.x = Math.random() * canvas.width - canvas.height;
+                    l.y = 0;
+                }
+            });
+
+            requestAnimationFrame(drawLines);
+        }
+        drawLines();
+
+        // Lógica Contador Regresivo (Objetivo: 10 Septiembre 2026 09:00 AM)
+        const targetDate = new Date('September 10, 2026 09:00:00').getTime();
+
+        function updateCountdown() {
             const now = new Date().getTime();
-            const distance = targetDate - now;
+            const difference = targetDate - now;
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
-
-            if (distance < 0) {
-                clearInterval(countdownFunction);
-                document.getElementById("countdown").innerHTML = "<div class='countdown-item' style='grid-column: span 4;'><span class='number'>¡El evento ha comenzado!</span></div>";
+                document.getElementById('days').innerText = String(days).padStart(2, '0');
+                document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+            } else {
+                document.getElementById('countdown').innerHTML = "<h3 style='color:var(--neon-amber)'>¡EL EVENTO HA COMENZADO!</h3>";
             }
-        }, 1000);
+        }
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
     </script>
 </body>
 </html>
