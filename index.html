@@ -1,83 +1,389 @@
-{
-    "titulo": "Paleta de Colores Fusionada y Proporciones de Logos",
-    "logos_analizados": [
-        "IBA Pan-American Cocktail Championship 2026",
-        "Caturanz (Cámara de Turismo del Estado Anzoátegui)",
-        "Fedecámaras Anzoátegui",
-        "Cámara de Comercio Lechería (CCL)"
-    ],
-    "paleta_de_colores": [
-        {
-            "color": "Negro Corporativo",
-            "hex": "#000000",
-            "rgb": [0, 0, 0],
-            "origen": "IBA Cocktail / Fedecámaras Anzoátegui",
-            "proporcion_en_paleta_fusionada": "30%"
-        },
-        {
-            "color": "Azul Turístico Caturanz",
-            "hex": "#1E3C8B",
-            "rgb": [30, 60, 139],
-            "origen": "Mapa Caturanz (Gradiente azul profundo a claro)",
-            "proporcion_en_paleta_fusionada": "20%"
-        },
-        {
-            "color": "Naranja Vibrante",
-            "hex": "#FF5500",
-            "rgb": [255, 85, 0],
-            "origen": "Texto Caturanz y acento circular CCL",
-            "proporcion_en_paleta_fusionada": "18%"
-        },
-        {
-            "color": "Azul Institucional CCL",
-            "hex": "#296FA7",
-            "rgb": [41, 111, 167],
-            "origen": "Isotipo y texto Cámara de Comercio Lechería",
-            "proporcion_en_paleta_fusionada": "15%"
-        },
-        {
-            "color": "Verde Palma",
-            "hex": "#118833",
-            "rgb": [17, 136, 51],
-            "origen": "Isotipo Caturanz (Hojas de palma)",
-            "proporcion_en_paleta_fusionada": "10%"
-        },
-        {
-            "color": "Gris Slogan",
-            "hex": "#8D8D86",
-            "rgb": [141, 141, 134],
-            "origen": "Slogan Fedecámaras Anzoátegui",
-            "proporcion_en_paleta_fusionada": "7%"
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XXIX Certamen Panamericano de Coctelería Venezuela 2026</title>
+    <style>
+        :root {
+            --bg-color: #0a0a12;
+            --text-color: #f0f0f5;
+            --accent-color: #d4af37;
+            --accent-hover: #b5952f;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
         }
-    ],
-    "proporcion_porcentual_por_logo": {
-        "IBA_Cocktail_Championship": {
-            "proporcion_global": "25%",
-            "desglose_colores": {
-                "Negro": "100%"
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .watermark {
+            position: fixed;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.06;
+        }
+
+        .watermark-left {
+            left: -120px;
+            top: 50%;
+            transform: translateY(-50%) rotate(-90deg);
+            width: 300px;
+        }
+
+        .watermark-right-container {
+            position: fixed;
+            right: -100px;
+            top: 50%;
+            transform: translateY(-50%) rotate(90deg);
+            display: flex;
+            gap: 60px;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.06;
+        }
+
+        .watermark-right-container img {
+            width: 250px;
+        }
+
+        .watermark-center {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 60vw;
+            max-width: 600px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 100px 20px;
+            background: radial-gradient(circle at center, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-color) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p.subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: #ccc;
+            margin-bottom: 40px;
+            max-width: 800px;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .countdown-item {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            padding: 20px 30px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 100px;
+        }
+
+        .countdown-item .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: block;
+        }
+
+        .countdown-item .label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #aaa;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #000;
+            padding: 18px 40px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+        }
+
+        .note {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            padding: 40px 30px;
+            border-radius: 16px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .card p {
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 60px 0 30px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .organizers {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .organizers img {
+            height: 60px;
+            filter: brightness(0) invert(1);
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .organizers img:hover {
+            opacity: 1;
+        }
+
+        footer p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .watermark-left, .watermark-right-container {
+                display: none;
             }
-        },
-        "Caturanz": {
-            "proporcion_global": "35%",
-            "desglose_colores": {
-                "Azul_Mapa": "40%",
-                "Naranja_Sol_Texto": "35%",
-                "Verde_Palma": "25%"
+            .watermark-center {
+                width: 80vw;
             }
-        },
-        "Fedecamaras_Anzoategui": {
-            "proporcion_global": "20%",
-            "desglose_colores": {
-                "Negro_Texto": "75%",
-                "Gris_Slogan": "25%"
+            .countdown {
+                gap: 10px;
             }
-        },
-        "Camara_Comercio_Lecheria": {
-            "proporcion_global": "20%",
-            "desglose_colores": {
-                "Azul_CCL": "75%",
-                "Naranja_Acento": "25%"
+            .countdown-item {
+                min-width: 70px;
+                padding: 15px 10px;
+            }
+            .countdown-item .number {
+                font-size: 1.8rem;
             }
         }
-    }
-}
+    </style>
+</head>
+<body>
+
+    <img src="fanz-pba.png" alt="FANZ Watermark" class="watermark watermark-left">
+    
+    <div class="watermark-right-container">
+        <img src="caturanz-pba.png" alt="CATURANZ Watermark">
+        <img src="ccl-pba.png" alt="CCL Watermark">
+    </div>
+    
+    <img src="iba-pba.png" alt="IBA Watermark" class="watermark watermark-center">
+
+    <section class="hero">
+        <div class="container">
+            <p style="color: var(--accent-color); font-weight: 600; letter-spacing: 3px; margin-bottom: 10px;">PUERTO LA CRUZ, EDO. ANZOÁTEGUI</p>
+            <h1>XXIX Certamen Panamericano de Coctelería Venezuela 2026</h1>
+            <p class="subtitle">20 países. Master Classes exclusivas. La experiencia de coctelería más grande de Latinoamérica.</p>
+            
+            <p style="margin-bottom: 20px; font-size: 1.1rem; color: #fff;">El evento comienza en:</p>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <span class="number" id="days">00</span>
+                    <span class="label">Días</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="hours">00</span>
+                    <span class="label">Horas</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="minutes">00</span>
+                    <span class="label">Minutos</span>
+                </div>
+                <div class="countdown-item">
+                    <span class="number" id="seconds">00</span>
+                    <span class="label">Segundos</span>
+                </div>
+            </div>
+
+            <a href="https://forms.gle/oBYXE68pgHhnZ4BCA" class="btn" target="_blank">Asegura tu lugar ahora</a>
+            <p class="note">* El enlace de registro solo funciona una vez por correo.</p>
+        </div>
+    </section>
+
+    <section id="info">
+        <div class="container">
+            <h2 class="section-title">Detalles del Evento</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>🌍 20 Países</h3>
+                    <p>Representación internacional de élite. Demostremos que en Anzoátegui se hace turismo, dando la más cordial bienvenida a los mejores bartenders del continente.</p>
+                </div>
+                <div class="card">
+                    <h3>🔥 Master Classes</h3>
+                    <p>Una exclusiva serie de Master Classes con grandes referentes de la industria, diseñadas para elevar la excelencia del bartender venezolano y de toda la región.</p>
+                </div>
+                <div class="card">
+                    <h3>📅 07 - 11 Septiembre 2026</h3>
+                    <p>5 días de competencia, networking y turismo en el corazón del oriente del país. Una experiencia única e irrepetible.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="venue" style="background: rgba(255,255,255,0.02);">
+        <div class="container">
+            <h2 class="section-title">Sede Oficial: Hotel Maremares</h2>
+            <div class="grid" style="grid-template-columns: 1fr 1fr; align-items: center;">
+                <div class="card">
+                    <h3>🏨 Lujo de 5 Estrellas</h3>
+                    <p>El prestigioso Hotel Maremares destaca por su imponente arquitectura inspirada en un crucero encallado a la orilla del mar. Gracias a su privilegiada ubicación en el centro de la ciudad y al final del Paseo de la Cruz y el Mar, garantiza una estadía inigualable y de primer nivel para atletas, asistentes y patrocinadores.</p>
+                </div>
+                <div class="card">
+                    <h3>📍 Puerto La Cruz, Anzoátegui</h3>
+                    <p>Importante ciudad portuaria y centro turístico, capital del Municipio Sotillo. Conformamos el área metropolitana más destacada del oriente del país junto a Barcelona, Lechería y Guanta. Mundialmente conocida como el principal punto de partida marítimo hacia la isla de Margarita y por su fácil acceso a los paradisíacos cayos del Parque Nacional Mochima.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="registro" style="text-align: center;">
+        <div class="container">
+            <h2 class="section-title">¡Sé Parte de la Historia!</h2>
+            <p style="font-size: 1.2rem; color: #ccc; max-width: 700px; margin: 0 auto 30px;">
+                En nombre de la Asociación de Bartenders de Venezuela (ABV), te invitamos formalmente al evento de coctelería más grande de Latinoamérica. Prepárate para vivir una experiencia única.
+            </p>
+            <a href="https://forms.gle/oBYXE68pgHhnZ4BCA" class="btn" target="_blank">Registrarse en el Certamen</a>
+            <p class="note">Pueden reenviar el link a sus contactos. Solo funciona con un correo una vez.</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="organizers">
+                <img src="fanz-pba.png" alt="FANZ">
+                <img src="caturanz-pba.png" alt="CATURANZ">
+                <img src="ccl-pba.png" alt="CCL">
+                <img src="iba-pba.png" alt="IBA">
+            </div>
+            <p>Organizado por la Cámara de Turismo del Estado Anzoátegui (CATURANZ) y la Asociación de Bartenders de Venezuela (ABV).</p>
+            <p>Afiliada a la International Bartenders Association (IBA).</p>
+            <p style="margin-top: 20px; font-size: 0.8rem;">© 2026 XXIX Certamen Panamericano de Coctelería Venezuela. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const targetDate = new Date("September 7, 2026 00:00:00").getTime();
+
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "<div class='countdown-item' style='grid-column: span 4;'><span class='number'>¡El evento ha comenzado!</span></div>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
