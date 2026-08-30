@@ -4,227 +4,424 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>XXIX Certamen Panamericano de Coctelería Venezuela 2026</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --bg-color: #023a53;
+            --text-color: #ffffff;
+            --accent-color: #d4af37;
+            --accent-hover: #f0c952;
+            --card-bg: rgba(255, 255, 255, 0.08);
+            --card-border: rgba(255, 255, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
         body {
-            font-family: 'Montserrat', sans-serif;
-            background-color: #0f172a;
-            color: #f8fafc;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
             overflow-x: hidden;
         }
-        .font-serif {
-            font-family: 'Playfair Display', serif;
+
+        /* CINTILLO SUPERIOR DE LOGOS */
+        .logo-ribbon {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px 0;
+            border-bottom: 1px solid var(--card-border);
         }
-        .glass {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .logo-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            padding: 0 20px;
         }
-        .gradient-text {
-            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 50%, #ec4899 100%);
+
+        .logo-container img {
+            height: 60px;
+            max-width: 150px;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 12px;
+            border-radius: 6px;
+            transition: transform 0.3s ease;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.05);
+        }
+
+        /* HERO SECTION */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: radial-gradient(circle at 50% 30%, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+        }
+
+        .hero-location {
+            color: var(--accent-color);
+            font-weight: 700;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #ffffff 0%, var(--accent-color) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
-        .glow-button {
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.5);
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: #cbd5e1;
+            max-width: 700px;
+            margin-bottom: 40px;
+        }
+
+        /* COUNTDOWN */
+        .countdown-wrapper {
+            margin-bottom: 40px;
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #94a3b8;
+        }
+
+        .countdown {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            backdrop-filter: blur(10px);
+            padding: 20px 25px;
+            border-radius: 12px;
+            min-width: 90px;
+            text-align: center;
+        }
+
+        .countdown-item .number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--accent-color);
+            display: block;
+            line-height: 1;
+        }
+
+        .countdown-item .label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #94a3b8;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: #023a53;
+            padding: 18px 45px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 50px;
             transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+            letter-spacing: 1px;
         }
-        .glow-button:hover {
-            box-shadow: 0 0 40px rgba(245, 158, 11, 0.8);
-            transform: translateY(-2px);
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
         }
-        .bg-animated {
-            background: radial-gradient(circle at 50% 50%, #1e1b4b 0%, #0f172a 50%, #000000 100%);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
+
+        .disclaimer {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #94a3b8;
+            font-style: italic;
         }
-        .bg-animated::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(245, 158, 11, 0.1) 0%, transparent 60%);
-            animation: rotate 20s linear infinite;
+
+        /* SECTIONS */
+        section {
+            padding: 80px 20px;
         }
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
         }
-        .countdown-box {
-            min-width: 80px;
+
+        .section-title {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--accent-color);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 700;
         }
-        .logo-container {
-            animation: float 6s ease-in-out infinite;
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 40px 30px;
+            border-radius: 16px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
         }
-        .logo-glow {
-            filter: drop-shadow(0 0 30px rgba(251, 191, 36, 0.3));
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: #cbd5e1;
+            line-height: 1.7;
+        }
+
+        /* VENUE SECTION */
+        .venue-section {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .venue-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .venue-grid {
+                grid-template-columns: 1fr;
+            }
+            .logo-container {
+                gap: 20px;
+            }
+            .logo-container img {
+                height: 45px;
+            }
+        }
+
+        /* FOOTER */
+        footer {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 60px 20px 30px;
+            text-align: center;
+            border-top: 1px solid var(--card-border);
+        }
+
+        footer p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .footer-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .footer-logos img {
+            height: 50px;
+            max-width: 120px;
+            object-fit: contain;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 8px 12px;
+            border-radius: 6px;
         }
     </style>
 </head>
-<body class="antialiased">
+<body>
 
-    <div class="bg-animated"></div>
-
-    <!-- Hero Section -->
-    <section class="min-h-screen flex flex-col items-center justify-center px-4 py-12 relative">
-        
-        <!-- Logo CATURANZ -->
-        <div class="logo-container logo-glow mb-8 z-10">
-            <img src="caturanz-logo.png" alt="CATURANZ - Cámara de Turismo del Estado Anzoátegui" class="h-32 md:h-44 lg:h-52 w-auto object-contain">
+    <!-- CINTILLO SUPERIOR -->
+    <div class="logo-ribbon">
+        <div class="logo-container">
+            <img src="fanz-pba.png" alt="FANZ">
+            <img src="caturanz-pba.png" alt="CATURANZ">
+            <img src="ccl-pba.png" alt="CCL">
+            <img src="iba-pba.png" alt="IBA">
         </div>
+    </div>
 
-        <div class="text-center max-w-4xl mx-auto z-10">
-            <p class="text-amber-400 tracking-[0.3em] text-sm md:text-base font-bold mb-4 uppercase">Puerto La Cruz, Edo. Anzoátegui</p>
-            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-black leading-tight mb-6">
-                <span class="gradient-text">XXIX Certamen</span><br>
-                <span class="text-white">Panamericano de</span><br>
-                <span class="text-white">Coctelería 2026</span>
-            </h1>
-            <p class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light">
-                20 países. Master Classes exclusivas. La experiencia de coctelería más grande de Latinoamérica.
-            </p>
-
-            <!-- Countdown Timer -->
-            <div class="glass rounded-2xl p-6 md:p-8 mb-10 inline-block w-full max-w-3xl">
-                <p class="text-slate-400 text-xs uppercase tracking-widest mb-4">El evento comienza en:</p>
-                <div class="flex flex-wrap justify-center gap-4 md:gap-8" id="countdown">
-                    <div class="countdown-box text-center">
-                        <span class="block text-4xl md:text-6xl font-bold text-white" id="days">00</span>
-                        <span class="text-xs md:text-sm text-amber-400 uppercase tracking-wider">Días</span>
-                    </div>
-                    <div class="countdown-box text-center">
-                        <span class="block text-4xl md:text-6xl font-bold text-white" id="hours">00</span>
-                        <span class="text-xs md:text-sm text-amber-400 uppercase tracking-wider">Horas</span>
-                    </div>
-                    <div class="countdown-box text-center">
-                        <span class="block text-4xl md:text-6xl font-bold text-white" id="minutes">00</span>
-                        <span class="text-xs md:text-sm text-amber-400 uppercase tracking-wider">Minutos</span>
-                    </div>
-                    <div class="countdown-box text-center">
-                        <span class="block text-4xl md:text-6xl font-bold text-white" id="seconds">00</span>
-                        <span class="text-xs md:text-sm text-amber-400 uppercase tracking-wider">Segundos</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Main CTA -->
-            <a href="https://forms.gle/oBYXE68pgHhnZ4BCA" target="_blank" class="glow-button inline-block bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold py-4 px-10 rounded-full text-lg uppercase tracking-wider">
-                Asegura tu lugar ahora
-            </a>
-            <p class="text-slate-500 text-xs mt-4">* El enlace de registro solo funciona una vez por correo.</p>
-        </div>
-    </section>
-
-    <!-- Info Section -->
-    <section class="py-20 px-4 relative z-10">
-        <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-            <div class="glass rounded-2xl p-8 md:p-12 border-l-4 border-amber-500">
-                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6 text-white">Hotel Maremares</h2>
-                <p class="text-slate-300 mb-4 leading-relaxed">
-                    Sede oficial del evento. Un hotel de 5 estrellas con una arquitectura imponente inspirada en un crucero encallado a la orilla del mar. 
-                </p>
-                <p class="text-slate-300 leading-relaxed">
-                    Ubicado en el centro de Puerto La Cruz, al final del Paseo de la Cruz y el Mar, garantiza una estadía de primer nivel para atletas, asistentes y patrocinadores.
-                </p>
-            </div>
-            <div class="space-y-6">
-                <div class="flex items-start gap-4">
-                    <div class="bg-amber-500/20 p-3 rounded-lg text-amber-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white">20 Países</h3>
-                        <p class="text-slate-400 text-sm">Representación internacional de élite.</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-4">
-                    <div class="bg-amber-500/20 p-3 rounded-lg text-amber-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white">Master Classes</h3>
-                        <p class="text-slate-400 text-sm">Serie exclusiva con grandes referentes de la industria.</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-4">
-                    <div class="bg-amber-500/20 p-3 rounded-lg text-amber-400">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold text-white">07 - 11 Septiembre 2026</h3>
-                        <p class="text-slate-400 text-sm">5 días de competencia, networking y turismo.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer / Links Section -->
-    <footer class="py-16 px-4 border-t border-slate-800 relative z-10">
-        <div class="max-w-4xl mx-auto text-center">
-            <h3 class="text-2xl font-serif font-bold text-white mb-8">Organizado por</h3>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <p class="hero-location">Puerto La Cruz, Edo. Anzoátegui</p>
+            <h1>XXIX Certamen Panamericano de Coctelería Venezuela 2026</h1>
+            <p>20 países. Master Classes exclusivas. La experiencia de coctelería más grande de Latinoamérica.</p>
             
-            <!-- Logo en el footer también -->
-            <div class="flex justify-center mb-8">
-                <img src="caturanz-logo.png" alt="CATURANZ" class="h-20 md:h-28 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity">
+            <div class="countdown-wrapper">
+                <p class="countdown-label">El evento comienza en:</p>
+                <div class="countdown" id="countdown">
+                    <div class="countdown-item">
+                        <span class="number" id="days">00</span>
+                        <span class="label">Días</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="number" id="hours">00</span>
+                        <span class="label">Horas</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="number" id="minutes">00</span>
+                        <span class="label">Minutos</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span class="number" id="seconds">00</span>
+                        <span class="label">Segundos</span>
+                    </div>
+                </div>
             </div>
 
-            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-12">
-                <div class="glass px-6 py-3 rounded-full text-amber-400 font-bold tracking-wider">CATURANZ</div>
-                <div class="hidden md:block text-slate-600">|</div>
-                <div class="glass px-6 py-3 rounded-full text-amber-400 font-bold tracking-wider">Asociación de Bartenders de Venezuela (ABV)</div>
-            </div>
+            <a href="https://forms.gle/oBYXE68pgHhnZ4BCA" class="btn" target="_blank">Asegura tu lugar ahora</a>
+            <p class="disclaimer">* El enlace de registro solo funciona una vez por correo. Puedes reenviarlo a tus contactos.</p>
+        </div>
+    </section>
 
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://www.caturanz.com/" target="_blank" class="group relative px-8 py-4 bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-amber-500 transition-all duration-300">
-                    <div class="absolute inset-0 w-0 bg-amber-500 transition-all duration-[250ms] ease-out group-hover:w-full opacity-10"></div>
-                    <span class="relative text-white font-semibold group-hover:text-amber-400 transition-colors">CATURANZ | Cámara de Turismo del Estado Anzoátegui</span>
-                </a>
-                
-                <a href="https://www.caturanz.com/contacto/" target="_blank" class="group relative px-8 py-4 bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-amber-500 transition-all duration-300">
-                    <div class="absolute inset-0 w-0 bg-amber-500 transition-all duration-[250ms] ease-out group-hover:w-full opacity-10"></div>
-                    <span class="relative text-white font-semibold group-hover:text-amber-400 transition-colors">Contacto</span>
-                </a>
+    <!-- DETALLES -->
+    <section id="info">
+        <div class="container">
+            <h2 class="section-title">La Experiencia</h2>
+            <div class="grid">
+                <div class="card">
+                    <span class="card-icon">🌍</span>
+                    <h3>20 Países</h3>
+                    <p>Representación internacional de élite. Demostremos que en Anzoátegui se hace turismo, dando la más cordial bienvenida a los mejores bartenders del continente.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">🔥</span>
+                    <h3>Master Classes</h3>
+                    <p>Serie exclusiva con grandes referentes de la industria, diseñada para elevar la excelencia del bartender venezolano y de toda la región.</p>
+                </div>
+                <div class="card">
+                    <span class="card-icon">📅</span>
+                    <h3>07 - 11 Septiembre 2026</h3>
+                    <p>5 días de competencia, networking y turismo en el corazón del oriente del país. Una experiencia única e irrepetible.</p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <p class="text-slate-600 text-sm mt-12">© 2026 XXIX Certamen Panamericano de Coctelería Venezuela. Todos los derechos reservados.</p>
+    <!-- SEDE -->
+    <section class="venue-section" id="venue">
+        <div class="container">
+            <h2 class="section-title">Sede Oficial</h2>
+            <div class="venue-grid">
+                <div class="card">
+                    <h3>🏨 Hotel Maremares</h3>
+                    <p>Un hotel de 5 estrellas con una arquitectura imponente inspirada en un crucero encallado a la orilla del mar. Garantiza una estadía de primer nivel para atletas, asistentes y patrocinadores.</p>
+                </div>
+                <div class="card">
+                    <h3>📍 Puerto La Cruz</h3>
+                    <p>Ubicado en el centro de la ciudad, al final del Paseo de la Cruz y el Mar. Importante ciudad portuaria y centro turístico, capital del Municipio Sotillo, y puerta de entrada al Parque Nacional Mochima.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CIERRE Y REGISTRO -->
+    <section id="registro" style="text-align: center;">
+        <div class="container">
+            <h2 class="section-title">Sé Parte de la Historia</h2>
+            <p style="font-size: 1.2rem; color: #cbd5e1; max-width: 700px; margin: 0 auto 30px;">
+                En nombre de la Asociación de Bartenders de Venezuela (ABV) y CATURANZ, te invitamos formalmente al evento de coctelería más grande de Latinoamérica.
+            </p>
+            <a href="https://forms.gle/oBYXE68pgHhnZ4BCA" class="btn" target="_blank">Registrarse en el Certamen</a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-logos">
+                <img src="fanz-pba.png" alt="FANZ">
+                <img src="caturanz-pba.png" alt="CATURANZ">
+                <img src="ccl-pba.png" alt="CCL">
+                <img src="iba-pba.png" alt="IBA">
+            </div>
+            <p>Organizado por la Cámara de Turismo del Estado Anzoátegui (CATURANZ) y la Asociación de Bartenders de Venezuela (ABV).</p>
+            <p>Afiliada a la International Bartenders Association (IBA).</p>
+            <p style="margin-top: 30px; font-size: 0.8rem; opacity: 0.6;">© 2026 XXIX Certamen Panamericano de Coctelería Venezuela. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <!-- Countdown Script -->
     <script>
-        const eventDate = new Date('September 7, 2026 00:00:00').getTime();
+        const targetDate = new Date("September 7, 2026 00:00:00").getTime();
 
-        const countdown = setInterval(function() {
+        const countdownFunction = setInterval(function() {
             const now = new Date().getTime();
-            const distance = eventDate - now;
+            const distance = targetDate - now;
 
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
-            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
-            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
-            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
 
             if (distance < 0) {
-                clearInterval(countdown);
-                document.getElementById('countdown').innerHTML = '<div class="text-3xl font-bold text-amber-400">¡EL EVENTO HA COMENZADO!</div>';
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "<div class='countdown-item' style='grid-column: span 4;'><span class='number'>¡El evento ha comenzado!</span></div>";
             }
         }, 1000);
     </script>
